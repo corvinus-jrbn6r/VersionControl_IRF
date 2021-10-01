@@ -10,17 +10,13 @@ namespace UserMaintenance.Entities //egyébként elég lenne innen is kitöröln
     {
         public Guid ID { get; } = Guid.NewGuid(); //egyedi azonosítót hoz létre a felhasználó szerverének adataiból
         //set ágat törlöm is, nem akarom, hogy megváltoztassák
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+
 
         //privat rész nem kötelező, hogy létezzen
 
         public string FullName //nem engedélyezem a szerkesztést, törlöm a setet
         {
-            get 
-            { 
-                return string.Format("{0} {1} ", LastName, FirstName);  //első rész az, hogy hogy épüljön fel, a többi amit behelyettesít
-            }
+            get; set;
        
         }
 
