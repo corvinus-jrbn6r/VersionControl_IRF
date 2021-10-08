@@ -162,6 +162,15 @@ namespace ExcelExport
             int lastRowID = xlSheet.UsedRange.Rows.Count;
             Excel.Range completeTableRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, headers.Length));
             completeTableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range firstRowRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, 1));
+            firstRowRange.Font.Bold = true;
+            firstRowRange.Interior.Color = Color.LightYellow;
+
+            Excel.Range lastRowRange = xlSheet.get_Range(GetCell(1,headers.Length), GetCell(lastRowID, headers.Length));
+            lastRowRange.Interior.Color = Color.LightGreen;
+            lastRowRange.NumberFormat = "###,###.00";
+
         }
     }
 }
