@@ -45,7 +45,7 @@ namespace Value_at_Risk
                                       select x)
                                         .ToList();
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
-            SaveToFile();
+           
         }
 
         private void CreatePortfolio()
@@ -98,6 +98,11 @@ namespace Value_at_Risk
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveToFile();
         }
     }
 }
