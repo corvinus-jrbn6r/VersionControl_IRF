@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Value_at_Risk.Entities;
 
 namespace Value_at_Risk
 {
@@ -14,6 +15,7 @@ namespace Value_at_Risk
     {
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
+        List<PortfolioItem> Portfolio = new List<PortfolioItem>();
 
 
         public Form1()
@@ -21,6 +23,23 @@ namespace Value_at_Risk
             InitializeComponent();
             Ticks = context.Ticks.ToList();
             dataGridView1.DataSource = Ticks;
+
+            CreatePortfolio();
+        }
+
+        private void CreatePortfolio()
+        {
+            Portfolio.Add(new PortfolioItem() { Index = "OTP", Volume = 10 });
+            Portfolio.Add(new PortfolioItem() { Index = "ZWACK", Volume = 10 });
+            Portfolio.Add(new PortfolioItem() { Index = "ELMU", Volume = 10 });
+
+            /* egy sor ennek felelne meg (ez egyszerűsített):
+            PortfolioItem p = new PortfolioItem();
+            p.Index = "OTP";
+            p.Volume = 10;
+            Portfolio.Add(p);*/
+
+            dataGridView2.DataSource = Portfolio;
         }
 
         private void Form1_Load(object sender, EventArgs e)
