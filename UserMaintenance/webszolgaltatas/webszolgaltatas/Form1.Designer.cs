@@ -1,7 +1,7 @@
 ﻿
 namespace webszolgaltatas
 {
-    partial class Form1
+    partial class chartRateData
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,13 @@ namespace webszolgaltatas
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.chartRateData1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartRateData1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -40,18 +45,36 @@ namespace webszolgaltatas
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(653, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(388, 400);
             this.dataGridView1.TabIndex = 0;
             // 
-            // Form1
+            // chartRateData1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartRateData1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartRateData1.Legends.Add(legend1);
+            this.chartRateData1.Location = new System.Drawing.Point(449, 24);
+            this.chartRateData1.Name = "chartRateData1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartRateData1.Series.Add(series1);
+            this.chartRateData1.Size = new System.Drawing.Size(504, 400);
+            this.chartRateData1.TabIndex = 1;
+            this.chartRateData1.Text = "chart1";
+            // 
+            // chartRateData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(965, 455);
+            this.Controls.Add(this.chartRateData1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Name = "chartRateData";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartRateData1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -59,6 +82,7 @@ namespace webszolgaltatas
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartRateData1;
     }
 }
 

@@ -7,24 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using webszolgaltatas.Entities;
 using webszolgaltatas.MnbServiceReference;
 
 namespace webszolgaltatas
 {
-    public partial class Form1 : Form
+    public partial class chartRateData : Form
     {
 
         BindingList<RateData> Rates = new BindingList<RateData>();
         
 
-        public Form1()
+        public chartRateData()
         {
             InitializeComponent();
 
             Call_webservice();
             dataGridView1.DataSource = Rates.ToList();
+            diagram();
         }
 
         private void Call_webservice()
@@ -62,6 +64,25 @@ namespace webszolgaltatas
                     rate.Value = value / unit;
             }
 
+        }
+
+        private void diagram()
+        {
+            chartRateData1.DataSource = Rates;
+
+            var series = chartRateData1.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+            series.BorderWidth = 2;
+
+            var legend = chartRateData1.Legends[0];
+            legend.Enabled = false;
+
+            var chartArea = chartRateData1.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsStartedFromZero = false;
         }
 
         
