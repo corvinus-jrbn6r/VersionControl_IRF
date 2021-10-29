@@ -7,17 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using webszolgaltatas.Entities;
 using webszolgaltatas.MnbServiceReference;
 
 namespace webszolgaltatas
 {
     public partial class Form1 : Form
     {
+
+        BindingList<RateData> Rates = new BindingList<RateData>();
+        
+
         public Form1()
         {
             InitializeComponent();
 
             Call_webservice();
+            dataGridView1.DataSource = Rates.ToList();
         }
 
         private void Call_webservice()
