@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace mikulasgyar
 {
-    class Ball:Label
+    public class Ball:Label
     {
         public Ball()
         {
@@ -30,7 +30,7 @@ namespace mikulasgyar
 
         public void MoveBall()
         {
-            Left+=1;
+            Left++;
         }
     }
 }

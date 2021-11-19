@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace mikulasgyar.Entities
 {
-    class BallFactory
+    public class BallFactory
     {
-      
         public Ball CreateNew()
         {
             return new Ball();
