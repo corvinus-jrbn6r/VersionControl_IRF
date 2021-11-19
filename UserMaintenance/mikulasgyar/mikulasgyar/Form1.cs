@@ -72,7 +72,10 @@ namespace mikulasgyar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = button3.BackColor
+            };
         }
 
         private void DisplayNext()
@@ -92,13 +95,13 @@ namespace mikulasgyar
             var button = (Button)sender;
             var colorPicker = new ColorDialog();
 
-            colorPicker.Color = button3.BackColor;
-            if (colorPicker.ShowDialog() == DialogResult.OK)
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
-            button3.BackColor = colorPicker.Color;
+            button.BackColor = colorPicker.Color;
         }
     }
 }
