@@ -23,7 +23,9 @@ namespace mikulasgyar
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value;
+            set
+            {
+                _factory = value;
                 DisplayNext();
             }
         }
@@ -80,7 +82,7 @@ namespace mikulasgyar
 
         private void DisplayNext()
         {
-            if (_nexttoy!= null)
+            if (_nexttoy != null)
             {
                 Controls.Remove(_nexttoy);
                 _nexttoy = Factory.CreateNew();
@@ -102,6 +104,16 @@ namespace mikulasgyar
             }
 
             button.BackColor = colorPicker.Color;
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory()
+            {
+                Doboz = button5.BackColor,
+                Szalag = button6.BackColor
+            };
         }
     }
 }
